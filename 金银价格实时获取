@@ -1,0 +1,14 @@
+#!/usr/bin/env.python
+# _*_ coding:utf-8 _*_
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import NoSuchElementException
+import time
+
+browser = webdriver.Chrome()              #选择浏览器
+browser.get("http://www.igoldhk.com/real-timequotes.html")    #从领峰贵金属网站获取实时数据
+while True:
+    time.sleep(1)                             #等待1s,让程序有足够时间加载
+    result = browser.find_element_by_class_name("realtimeprice")
+    print (result.text)
